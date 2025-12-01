@@ -1,24 +1,16 @@
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
-import docusaurusTheme, { useDocusaurusTheme } from "../theme/docusaurus";
+import { useDocusaurusTheme } from "../theme/docusaurus";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { ThemeProvider } from "@mui/material/styles";
 import {
-  Avatar,
-  Box,
   Container,
-  Divider,
-  Grid,
-  LinearProgress,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Paper,
-  Stack,
   Typography,
 } from "@mui/material";
-import Link from "@docusaurus/Link";
+import BasicInfo from "../components/home/info";
+import EducationInfo from "../components/home/education";
+import SkillInfo from "../components/home/skill";
+import ResearchInfo from "../components/home/research";
 
 const HomepageHeader = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -46,8 +38,6 @@ const HomepageHeader = () => {
 };
 
 const HomepageBody = () => {
-  const { siteConfig } = useDocusaurusContext();
-  const blogURL = `${siteConfig.baseUrl}blog`;
   return (
     <Container
       sx={{
@@ -58,224 +48,18 @@ const HomepageBody = () => {
         marginTop: 4,
       }}
     >
+      <BasicInfo />
       <Container
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" },
         }}
       >
-        <Avatar
-          alt="andrew"
-          src="img/avatar.jpg"
-          sx={{ width: "15%", height: "15%" }}
-        />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: 4,
-          }}
-        >
-          <Typography variant="h4">Andrew</Typography>
-          <Typography variant="h5" sx={{ color: "text.secondary" }}>
-            Backend Engineer, Tencent Inc.
-          </Typography>
-          <Grid container sx={{ marginTop: 2 }}>
-            <Grid size={{ xs: 4, md: 4 }}>
-              <Typography variant="h5" color="text.secondary">
-                Position
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 8, md: 8 }}>
-              <Typography variant="h5" color="text.secondary">
-                China
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 4, md: 4 }}>
-              <Typography variant="h5" color="text.secondary">
-                Email
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 8, md: 8 }}>
-              <Typography variant="h5" color="text.secondary">
-                yszhouyx@outlook.com
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 4, md: 4 }}>
-              <Typography variant="h5" color="text.secondary">
-                Blog
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 8, md: 8 }}>
-              <Typography variant="h5" color="text.secondary">
-                <Link href={blogURL}>Andrew's Blog</Link>
-              </Typography>
-            </Grid>
-          </Grid>
-        </Box>
-      </Container>
-      <Container
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Paper
-          elevation={2}
-          sx={{ minWidth: "30%", marginTop: 8, minHeight: "440px" }}
-        >
-          <Typography variant="h4" sx={{ marginTop: 2, marginLeft: 2 }}>
-            Education
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar alt="jlu" src="img/jlu.ico" />
-              </ListItemAvatar>
-              <Box>
-                <Typography variant="h6">Master's Degree</Typography>
-                <Typography variant="h6">
-                  Computer Science and Technology
-                </Typography>
-                <Typography variant="h6" sx={{ color: "text.secondary" }}>
-                  Jilin University
-                </Typography>
-              </Box>
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar alt="cqupt" src="img/cqupt.ico" />
-              </ListItemAvatar>
-              <Box>
-                <Typography variant="h6">Bachelor's Degree</Typography>
-                <Typography variant="h6">
-                  Computer Science and Technology
-                </Typography>
-                <Typography variant="h6" sx={{ color: "text.secondary" }}>
-                  Chongqing University of Posts and Telecommunications
-                </Typography>
-              </Box>
-            </ListItem>
-          </List>
-        </Paper>
-        <Paper
-          elevation={2}
-          sx={{
-            minWidth: "30%",
-            marginTop: 8,
-            marginLeft: 4,
-            minHeight: "440px",
-          }}
-        >
-          <Typography variant="h4" sx={{ marginTop: 2, marginLeft: 2 }}>
-            Skill
-          </Typography>
-          <List>
-            <ListItem
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography variant="h5" sx={{ color: "text.secondary" }}>
-                Go
-              </Typography>
-              <LinearProgress
-                variant="determinate"
-                value={75}
-                sx={{ width: "100%", marginTop: 2 }}
-              ></LinearProgress>
-            </ListItem>
-          </List>
-          <List>
-            <ListItem
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography variant="h5" sx={{ color: "text.secondary" }}>
-                Java
-              </Typography>
-              <LinearProgress
-                variant="determinate"
-                value={75}
-                sx={{ width: "100%", marginTop: 2 }}
-              ></LinearProgress>
-            </ListItem>
-          </List>
-          <List>
-            <ListItem
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography variant="h5" sx={{ color: "text.secondary" }}>
-                C++
-              </Typography>
-              <LinearProgress
-                variant="determinate"
-                value={50}
-                sx={{ width: "100%", marginTop: 2 }}
-              ></LinearProgress>
-            </ListItem>
-          </List>
-          <List>
-            <ListItem
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
-            >
-              <Typography variant="h5" sx={{ color: "text.secondary" }}>
-                Python
-              </Typography>
-              <LinearProgress
-                variant="determinate"
-                value={50}
-                sx={{ width: "100%", marginTop: 2 }}
-              ></LinearProgress>
-            </ListItem>
-          </List>
-        </Paper>
-        <Paper
-          elevation={2}
-          sx={{
-            minWidth: "30%",
-            marginTop: 8,
-            marginLeft: 4,
-            minHeight: "440px",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Typography variant="h4" sx={{ marginTop: 2, marginLeft: 2 }}>
-            Project & Research
-          </Typography>
-          <List>
-            <ListItem>
-              <Typography variant="h6">
-                Multi-Agent Coordination SDK in Golang
-              </Typography>
-            </ListItem>
-            <Divider />
-            <ListItem>
-              <Typography variant="h6">
-                <Link href="https://ieeexplore.ieee.org/document/10817616">
-                  A Survey of Change Point Detection in Dynamic Graphs (CCF-A)
-                </Link>
-              </Typography>
-            </ListItem>
-          </List>
-        </Paper>
+        <EducationInfo />
+        <SkillInfo />
+        <ResearchInfo/>
       </Container>
     </Container>
   );
