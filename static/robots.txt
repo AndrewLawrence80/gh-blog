@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrewlawrence80.github.io/gh-blog/sitemap.xml

@@ -75,6 +75,7 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+
     navbar: {
       title: "Andrew's Blog",
       items: [
@@ -86,14 +87,23 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       style: "dark",
       copyright: `Copyright © ${new Date().getFullYear()} Andrew's Blog. Built with Docusaurus.`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+
+    sitemap: {
+      changefreq: "weekly",
+      priority: 0.5,
+    },
+
+    metadata: [{ name: "keywords", content: "博客, 技术博客, Docusaurus" }],
   } satisfies Preset.ThemeConfig,
 
   themes: [
